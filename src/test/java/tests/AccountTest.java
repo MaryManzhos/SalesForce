@@ -2,6 +2,7 @@ package tests;
 
 import models.Account;
 import org.testng.annotations.Test;
+import static org.testng.Assert.*;
 
 public class AccountTest extends Authorization {
 
@@ -22,5 +23,11 @@ public class AccountTest extends Authorization {
                 .isPageOpen()
                 .createAccount(account)
                 .clickButtonSave();
+        accountDetailsWidget
+                .goToTabDetails()
+                .isPageOpen()
+                .getAccountDetails();
+
+        //assertEquals();
     }
 }

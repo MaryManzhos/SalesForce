@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
+import pages.Accounts.AccountDetailsWidget;
 import pages.Accounts.AccountListPage;
 import pages.Accounts.NewAccountModal;
 import pages.Contacts.ContactListPage;
@@ -21,6 +22,7 @@ public class BaseTest {
     AccountListPage accountListPage;
     ContactListPage contactListPage;
     NewContactModal newContactModal;
+    AccountDetailsWidget accountDetailsWidget;
 
     @BeforeClass
     public void SetUp() {
@@ -34,6 +36,7 @@ public class BaseTest {
         accountListPage = new AccountListPage(driver);
         contactListPage = new ContactListPage(driver);
         newContactModal = new NewContactModal(driver);
+        accountDetailsWidget = new AccountDetailsWidget(driver);
     }
 
     @AfterClass(alwaysRun = true)
