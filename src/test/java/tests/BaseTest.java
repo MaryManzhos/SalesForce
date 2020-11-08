@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -26,13 +27,18 @@ public class BaseTest {
     AccountDetailsWidget accountDetailsWidget;
 
     @BeforeClass
-    public void SetUp() {
+    public void SetUp(ITestContext context) {
+        String variable = "driver";
+        System.out.println("Setting driver into context with variable name " + variable);
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
+
+
         driver = new ChromeDriver(options);
+        context.setAttribute(variable, driver);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 

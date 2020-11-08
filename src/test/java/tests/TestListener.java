@@ -23,6 +23,8 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
         System.out.println(String.format("===== FINISHED TEST %s Duration: %s =====", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
+
+        takeScreenshot(iTestResult);
     }
 
     @Override
