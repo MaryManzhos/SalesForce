@@ -1,15 +1,19 @@
 package tests;
 
 import models.Account;
+import models.AccountFields;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class AccountTest extends Authorization {
 
+    AccountFields accountFields = new AccountFields();
+
     Account account = new Account("Mary", "Analyst",
             "https://www.pandadoc.com/", "Description",
             "Cinderella", "+792557779944", "Banking",
-            "1500", "Avenu St.", "Paris",
+            "50", "Avenu St.", "Paris",
             "France", "123456789", "France",
             "Street", "Berlin", "Berlin",
             "987654321", "Germany");
@@ -25,9 +29,23 @@ public class AccountTest extends Authorization {
                 .clickButtonSave();
         accountDetailsWidget
                 .goToTabDetails()
-                .isPageOpen()
-                .getAccountDetails();
+                .isPageOpen();
 
-        //assertEquals();
+          accountFields = accountDetailsWidget.getAccountDetails();
+          accountDetailsWidget.validateAccountDetails(accountFields,account);
+    }
+
+    @AfterMethod
+    public void deleteAddedAccount() {
+        accountListPage
+                .openPage()
+                .isPageOpen();
+        if(accountListPage.isNewAccountAdded(account)){
+            accountListPage
+                    .openDeleteAccountModal(account)
+                    .isPageOpen()
+                    .clickButtonDelete()
+                    .isDisplayNotification();
+        }
     }
 }

@@ -60,4 +60,14 @@ public class AccountDetailsWidget extends BasePage {
         return accountFields;
     }
 
+    public void validateAccountDetails(AccountFields accountFields, Account account) {
+        assertEquals(accountFields.getAccountName(),account.getAccountName());
+        assertEquals(accountFields.getType(),account.getType());
+        assertEquals(accountFields.getWebsite(),account.getWebsite());
+        assertEquals(accountFields.getDescription(),account.getDescription());
+        assertEquals(accountFields.getPhone(),account.getPhone());
+        assertEquals(accountFields.getIndustry(),account.getIndustry());
+        assertEquals(accountFields.getEmployees(),account.getEmployees());
+    }
+
 }
