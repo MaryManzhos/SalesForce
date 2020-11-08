@@ -3,6 +3,7 @@ package pages.Accounts;
 import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class NewAccountModal extends BasePage {
         return this;
     }
 
+    @Step("Input values into fields")
     public NewAccountModal createAccount(Account account) {
         new Input(driver, "Account Name").write(account.getAccountName());
         new DropDown(driver, "Type").select(account.getType());
@@ -44,6 +46,7 @@ public class NewAccountModal extends BasePage {
         return this;
     }
 
+    @Step("Click button SAVE")
     public NewAccountModal clickButtonSave() {
         driver.findElement(BUTTON_SAVE).click();
         return this;

@@ -1,23 +1,21 @@
 package pages.Accounts;
 
-import elements.DropDown;
 import elements.Fields;
-import elements.Input;
-import elements.TextArea;
+import io.qameta.allure.Step;
 import models.Account;
 import models.AccountFields;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
-import static org.testng.Assert.*;
+
+import static org.testng.Assert.assertEquals;
 
 public class AccountDetailsWidget extends BasePage {
 
-    AccountFields accountFields;
-
     public static final By TAB_DETAILS = By.xpath("//a[contains(@data-label,'Details')]");
     public static final By LOCATOR = By.xpath("//span[contains(text(),'Created By')]");
+    AccountFields accountFields;
 
     public AccountDetailsWidget(WebDriver driver) {
         super(driver);
@@ -29,6 +27,7 @@ public class AccountDetailsWidget extends BasePage {
         return this;
     }
 
+    @Step("Go to tab Account Details")
     public AccountDetailsWidget goToTabDetails() {
         driver.findElement(TAB_DETAILS).click();
         return this;
@@ -46,28 +45,17 @@ public class AccountDetailsWidget extends BasePage {
         accountFields.setPhone(new Fields(driver, "Phone").getInformationLink());
         accountFields.setIndustry(new Fields(driver, "Industry").getInformationText());
         accountFields.setEmployees(new Fields(driver, "Employees").getInformationText());
-
-        /*new TextArea(driver, "Billing Street").write(account.getBillingStreet());
-        new Input(driver, "Billing City").write(account.getBillingCity());
-        new Input(driver, "Billing State/Province").write(account.getBillingStateProvince());
-        new Input(driver, "Billing Zip/Postal Code").write(account.getBillingZipPostalCode());
-        new Input(driver, "Billing Country").write(account.getBillingCountry());
-        new TextArea(driver, "Shipping Street").write(account.getShippingStreet());
-        new Input(driver, "Shipping City").write(account.getShippingCity());
-        new Input(driver, "Shipping State/Province").write(account.getShippingStateProvince());
-        new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZipPostalCode());
-        new Input(driver, "Shipping Country").write(account.getShippingCountry());*/
         return accountFields;
     }
 
     public void validateAccountDetails(AccountFields accountFields, Account account) {
-        assertEquals(accountFields.getAccountName(),account.getAccountName());
-        assertEquals(accountFields.getType(),account.getType());
-        assertEquals(accountFields.getWebsite(),account.getWebsite());
-        assertEquals(accountFields.getDescription(),account.getDescription());
-        assertEquals(accountFields.getPhone(),account.getPhone());
-        assertEquals(accountFields.getIndustry(),account.getIndustry());
-        assertEquals(accountFields.getEmployees(),account.getEmployees());
+        assertEquals(accountFields.getAccountName(), account.getAccountName());
+        assertEquals(accountFields.getType(), account.getType());
+        assertEquals(accountFields.getWebsite(), account.getWebsite());
+        assertEquals(accountFields.getDescription(), account.getDescription());
+        assertEquals(accountFields.getPhone(), account.getPhone());
+        assertEquals(accountFields.getIndustry(), account.getIndustry());
+        assertEquals(accountFields.getEmployees(), account.getEmployees());
     }
 
 }

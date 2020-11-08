@@ -15,7 +15,7 @@ public class Fields {
         this.label = label;
     }
 
-   public String getInformationText() {
+    public String getInformationText() {
         return driver.findElement(By.xpath(String.format(locator, label))).getText();
     }
 

@@ -1,5 +1,6 @@
 package pages.Accounts;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,7 @@ public class DeleteAccountModal extends BasePage {
         return this;
     }
 
+    @Step("Click button DELETE")
     public AccountListPage clickButtonDelete() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_DELETE));
         driver.findElement(BUTTON_DELETE).click();

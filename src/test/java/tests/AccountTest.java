@@ -4,7 +4,6 @@ import models.Account;
 import models.AccountFields;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 public class AccountTest extends Authorization {
 
@@ -31,8 +30,8 @@ public class AccountTest extends Authorization {
                 .goToTabDetails()
                 .isPageOpen();
 
-          accountFields = accountDetailsWidget.getAccountDetails();
-          accountDetailsWidget.validateAccountDetails(accountFields,account);
+        accountFields = accountDetailsWidget.getAccountDetails();
+        accountDetailsWidget.validateAccountDetails(accountFields, account);
     }
 
     @AfterMethod
@@ -40,7 +39,7 @@ public class AccountTest extends Authorization {
         accountListPage
                 .openPage()
                 .isPageOpen();
-        if(accountListPage.isNewAccountAdded(account)){
+        if (accountListPage.isNewAccountAdded(account)) {
             accountListPage
                     .openDeleteAccountModal(account)
                     .isPageOpen()
