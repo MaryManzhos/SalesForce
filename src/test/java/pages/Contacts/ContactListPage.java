@@ -13,7 +13,7 @@ public class ContactListPage extends BasePage {
         super(driver);
     }
 
-    public ContactListPage isPageOpen() {
+    public ContactListPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_NEW));
         return this;
     }

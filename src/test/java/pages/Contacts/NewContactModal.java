@@ -18,7 +18,7 @@ public class NewContactModal extends BasePage {
     }
 
     @Override
-    public NewContactModal isPageOpen() {
+    public NewContactModal isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_SAVE));
         return this;
     }

@@ -22,7 +22,7 @@ public class AccountDetailsWidget extends BasePage {
     }
 
     @Override
-    public AccountDetailsWidget isPageOpen() {
+    public AccountDetailsWidget isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LOCATOR));
         return this;
     }

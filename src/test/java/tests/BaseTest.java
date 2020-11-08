@@ -27,7 +27,7 @@ public class BaseTest {
     AccountDetailsWidget accountDetailsWidget;
 
     @BeforeClass
-    public void SetUp(ITestContext context) {
+    public void setUp(ITestContext context) {
         String variable = "driver";
         System.out.println("Setting driver into context with variable name " + variable);
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");

@@ -14,7 +14,7 @@ public class DeleteAccountModal extends BasePage {
         super(driver);
     }
 
-    public DeleteAccountModal isPageOpen() {
+    public DeleteAccountModal isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_DELETE));
         return this;
     }

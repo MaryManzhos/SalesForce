@@ -17,18 +17,18 @@ public class AccountTest extends Authorization {
             "Street", "Berlin", "Berlin",
             "987654321", "Germany");
 
-    @Test
+    @Test(description = "Create new Account", retryAnalyzer = RetryAnalyzer.class)
     public void accountShouldBeCreated() {
         accountListPage
                 .openPage()
-                .isPageOpen()
+                .isPageOpened()
                 .openModalNewAccount()
-                .isPageOpen()
+                .isPageOpened()
                 .createAccount(account)
                 .clickButtonSave();
         accountDetailsWidget
                 .goToTabDetails()
-                .isPageOpen();
+                .isPageOpened();
 
         accountFields = accountDetailsWidget.getAccountDetails();
         accountDetailsWidget.validateAccountDetails(accountFields, account);
@@ -38,11 +38,11 @@ public class AccountTest extends Authorization {
     public void deleteAddedAccount() {
         accountListPage
                 .openPage()
-                .isPageOpen();
+                .isPageOpened();
         if (accountListPage.isNewAccountAdded(account)) {
             accountListPage
                     .openDeleteAccountModal(account)
-                    .isPageOpen()
+                    .isPageOpened()
                     .clickButtonDelete()
                     .isDisplayNotification();
         }

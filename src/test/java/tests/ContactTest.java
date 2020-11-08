@@ -17,9 +17,9 @@ public class ContactTest extends Authorization {
     public void contactShouldBeCreated() {
         contactListPage
                 .openPage()
-                .isPageOpen()
+                .isPageOpened()
                 .openModalNewAccount()
-                .isPageOpen()
+                .isPageOpened()
                 .createAccount(contact)
                 .clickButtonSave();
     }

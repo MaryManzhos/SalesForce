@@ -1,4 +1,4 @@
-package dataTest;
+package data;
 
 public class TestData {
     public static final String URL = "https://login.salesforce.com/";

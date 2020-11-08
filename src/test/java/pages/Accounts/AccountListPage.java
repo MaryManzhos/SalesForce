@@ -22,7 +22,7 @@ public class AccountListPage extends BasePage {
         super(driver);
     }
 
-    public AccountListPage isPageOpen() {
+    public AccountListPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_NEW));
         return this;
     }

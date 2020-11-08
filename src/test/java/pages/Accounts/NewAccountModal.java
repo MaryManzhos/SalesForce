@@ -18,7 +18,7 @@ public class NewAccountModal extends BasePage {
         super(driver);
     }
 
-    public NewAccountModal isPageOpen() {
+    public NewAccountModal isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_SAVE));
         return this;
     }

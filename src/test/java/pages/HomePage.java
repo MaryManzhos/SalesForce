@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public HomePage isPageOpen() {
+    public HomePage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_OF_WIDGET));
         return this;
     }

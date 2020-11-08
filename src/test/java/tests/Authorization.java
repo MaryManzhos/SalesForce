@@ -2,8 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeClass;
 
-import static dataTest.TestData.PASSWORD;
-import static dataTest.TestData.USERNAME;
+import static data.TestData.PASSWORD;
+import static data.TestData.USERNAME;
 
 public class Authorization extends BaseTest {
 
@@ -11,8 +11,8 @@ public class Authorization extends BaseTest {
     public void authorization() {
         loginPage
                 .openPage()
-                .isPageOpen()
+                .isPageOpened()
                 .authorization(USERNAME, PASSWORD)
-                .isPageOpen();
+                .isPageOpened();
     }
 }

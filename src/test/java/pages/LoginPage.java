@@ -4,9 +4,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import tests.Authorization;
 
-import static dataTest.TestData.URL;
+import static data.TestData.URL;
 
 public class LoginPage extends BasePage {
 
@@ -18,7 +17,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public LoginPage isPageOpen() {
+    public LoginPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
         return this;
     }
