@@ -48,8 +48,8 @@ public class AccountDetailsWidget extends BasePage {
         accountFields.setPhone(new Fields(driver, "Phone").getInformationLink());
         accountFields.setIndustry(new Fields(driver, "Industry").getInformationText());
         accountFields.setEmployees(new Fields(driver, "Employees").getInformationText());
-        accountFields.setBillingAddressInformation(new Fields(driver,"Billing Address").getInformationAddressLink());
-        accountFields.setShippingAddressInformation(new Fields(driver,"Shipping Address").getInformationAddressLink());
+        accountFields.setBillingAddressInformation(new Fields(driver, "Billing Address").getInformationAddressLink());
+        accountFields.setShippingAddressInformation(new Fields(driver, "Shipping Address").getInformationAddressLink());
 
         return accountFields;
     }
@@ -65,20 +65,21 @@ public class AccountDetailsWidget extends BasePage {
         assertEquals(accountFields.getIndustry(), account.getIndustry());
         assertEquals(accountFields.getEmployees(), account.getEmployees());
 
-        String billingAddress = convertAddress(account.getBillingCity(),account.getBillingStateProvince(), account.getBillingZipPostalCode());
-        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(),account.getBillingStreet()));
+        String billingAddress = convertAddress(account.getBillingCity(), account.getBillingStateProvince(), account.getBillingZipPostalCode());
+        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingStreet()));
         assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), billingAddress));
-        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(),account.getBillingCountry()));
+        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingCountry()));
 
-        String shippingAddress = convertAddress(account.getShippingCity(),account.getShippingStateProvince(), account.getShippingZipPostalCode());
-        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(),account.getShippingStreet()));
+        String shippingAddress = convertAddress(account.getShippingCity(), account.getShippingStateProvince(), account.getShippingZipPostalCode());
+        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingStreet()));
         assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), shippingAddress));
-        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(),account.getShippingCountry()));
+        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingCountry()));
     }
 
     public String convertAddress(String city, String state, String code) {
         return String.format(city + ", " + state + " " + code);
     }
+
     public boolean isExistElementInList(List<String> list, String str) {
 
         for (int i = 0; i < list.size(); i++) {
@@ -88,5 +89,4 @@ public class AccountDetailsWidget extends BasePage {
         }
         return false;
     }
-
 }
