@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Go to salesForce'")
+    @Step("Go to 'salesForce'")
     public LoginPage openPage() {
         driver.get(URL);
         return this;

@@ -29,6 +29,7 @@ public class Account {
         this.phone = phone;
         this.industry = industry;
         this.employees = employees;
+
         this.billingStreet = billingStreet;
         this.billingCity = billingCity;
         this.billingStateProvince = billingStateProvince;
