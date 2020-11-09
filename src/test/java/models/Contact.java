@@ -14,6 +14,7 @@ public class Contact {
     String reportsTo;
     String department;
     String fax;
+
     String mailingStreet;
     String mailingCity;
     String mailingStateProvince;

@@ -10,9 +10,13 @@ import org.testng.annotations.Listeners;
 import pages.Accounts.AccountDetailsWidget;
 import pages.Accounts.AccountListPage;
 import pages.Accounts.NewAccountModal;
+import pages.Contacts.ContactDetailsWidget;
 import pages.Contacts.ContactListPage;
 import pages.Contacts.NewContactModal;
 import pages.LoginPage;
+import pages.Modals.ContextMenuInGrid;
+import pages.Modals.DeleteModal;
+import pages.Modals.NotificationModal;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +29,10 @@ public class BaseTest {
     ContactListPage contactListPage;
     NewContactModal newContactModal;
     AccountDetailsWidget accountDetailsWidget;
+    ContextMenuInGrid contextMenuInGrid;
+    DeleteModal deleteModal;
+    NotificationModal notificationModal;
+    ContactDetailsWidget contactDetailsWidget;
 
     @BeforeClass
     public void setUp(ITestContext context) {
@@ -35,7 +43,6 @@ public class BaseTest {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
-
 
         driver = new ChromeDriver(options);
         context.setAttribute(variable, driver);
@@ -48,6 +55,10 @@ public class BaseTest {
         contactListPage = new ContactListPage(driver);
         newContactModal = new NewContactModal(driver);
         accountDetailsWidget = new AccountDetailsWidget(driver);
+        contextMenuInGrid = new ContextMenuInGrid(driver);
+        deleteModal = new DeleteModal(driver);
+        notificationModal = new NotificationModal(driver);
+        contactDetailsWidget = new ContactDetailsWidget(driver);
     }
 
     @AfterClass(alwaysRun = true)

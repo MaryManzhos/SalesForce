@@ -41,10 +41,13 @@ public class AccountTest extends Authorization {
                 .isPageOpened();
         if (accountListPage.isNewAccountAdded(account)) {
             accountListPage
-                    .openDeleteAccountModal(account)
+                    .openContextMenuInGrid(account)
                     .isPageOpened()
-                    .clickButtonDelete()
-                    .isDisplayNotification();
+                    .openDeleteAccountModal()
+                    .isPageOpened()
+                    .clickButtonDelete();
+            notificationModal
+                    .isPageOpened();
         }
     }
 }

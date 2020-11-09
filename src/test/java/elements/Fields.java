@@ -11,12 +11,22 @@ public class Fields {
     WebDriver driver;
     String label;
     String locator = "//*[contains(text(), '%s')]/ancestor::div[contains(@class,'label-inline')]//descendant::slot[contains(@slot,'outputField')]//*";
+    String locatorName = "//*[contains(text(), '%s')]/ancestor::div[contains(@class,'label-inline')]//descendant::slot[contains(@slot,'outputField')]/lightning-formatted-name";
     String locatorA = "//*[contains(text(), '%s')]/ancestor::div[contains(@class,'label-inline')]//a"; //Website, Phone
+    String locatorSpan = "//*[contains(text(), '%s')]/ancestor::div[contains(@class,'label-inline')]//descendant::slot[contains(@slot,'outputField')]//span";
     String locatorAddressA = "//span[contains(text(), '%s')]/ancestor::div[contains(@class, 'label-inline')]//div[contains(@class,'slds-truncate')]"; //Address
 
     public Fields(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
+    }
+
+    public String getInformationName() {
+        return driver.findElement(By.xpath(String.format(locatorName, label))).getText();
+    }
+
+    public String getInformationSpan() {
+        return driver.findElement(By.xpath(String.format(locatorSpan, label))).getText();
     }
 
     public String getInformationText() {

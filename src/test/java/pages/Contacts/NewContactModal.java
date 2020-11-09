@@ -2,6 +2,7 @@ package pages.Contacts;
 
 import elements.DropDown;
 import elements.Input;
+import elements.InputsWithSearch;
 import elements.TextArea;
 import models.Contact;
 import org.openqa.selenium.By;
@@ -30,6 +31,7 @@ public class NewContactModal extends BasePage {
         new Input(driver, "Last Name").write(contact.getLastName());
         new Input(driver, "Suffix").write(contact.getSuffix());
         new Input(driver, "Account Name").write(contact.getAccountName());
+        new InputsWithSearch(driver,contact.getAccountName()).choose();
         new Input(driver, "Title").write(contact.getTitle());
         new Input(driver, "Email").write(contact.getEmail());
         new Input(driver, "Phone").write(contact.getPhone());
