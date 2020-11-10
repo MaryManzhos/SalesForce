@@ -2,8 +2,6 @@ package pages.Contacts;
 
 import elements.Fields;
 import io.qameta.allure.Step;
-import models.Account;
-import models.AccountFields;
 import models.Contact;
 import models.ContactFields;
 import org.openqa.selenium.By;
@@ -14,10 +12,9 @@ import utils.Utils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static utils.Utils.*;
 
 public class ContactDetailsWidget extends BasePage {
-
-    Utils utils = new Utils();
 
     ContactFields contactFields;
 
@@ -61,7 +58,7 @@ public class ContactDetailsWidget extends BasePage {
     @Step("Validate created account")
     public void validateContactDetails(ContactFields contactFields, Contact contact) {
 
-        String name = utils.convertName(contact.getSalutation(),contact.getFirstName(),contact.getMiddleName(),contact.getLastName(),contact.getSuffix());
+        String name = convertName(contact.getSalutation(),contact.getFirstName(),contact.getMiddleName(),contact.getLastName(),contact.getSuffix());
         assertEquals(contactFields.getName(), name);
         assertEquals(contactFields.getAccountName(), contact.getAccountName());
         assertEquals(contactFields.getTitle(), contact.getTitle());
@@ -72,9 +69,9 @@ public class ContactDetailsWidget extends BasePage {
         assertEquals(contactFields.getDepartment(), contact.getDepartment());
         assertEquals(contactFields.getFax(), contact.getFax());
 
-        String mailingAddress = utils.convertAddress(contact.getMailingCity(), contact.getMailingStateProvince(), contact.getMailingZipPostalCode());
-        assertTrue(utils.isExistElementInList(contactFields.getMailingAddress(), contact.getMailingStreet()));
-        assertTrue(utils.isExistElementInList(contactFields.getMailingAddress(), mailingAddress));
-        assertTrue(utils.isExistElementInList(contactFields.getMailingAddress(), contact.getMailingCountry()));
+        String mailingAddress = convertAddress(contact.getMailingCity(), contact.getMailingStateProvince(), contact.getMailingZipPostalCode());
+        assertTrue(isExistElementInList(contactFields.getMailingAddress(), contact.getMailingStreet()));
+        assertTrue(isExistElementInList(contactFields.getMailingAddress(), mailingAddress));
+        assertTrue(isExistElementInList(contactFields.getMailingAddress(), contact.getMailingCountry()));
     }
 }

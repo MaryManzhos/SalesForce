@@ -8,16 +8,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
-import utils.Utils;
-
-import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static utils.Utils.*;
 
 public class AccountDetailsWidget extends BasePage {
 
-    Utils utils = new Utils();
     AccountFields accountFields;
 
     public static final By TAB_DETAILS = By.xpath("//a[contains(@data-label,'Details')]");
@@ -68,15 +65,15 @@ public class AccountDetailsWidget extends BasePage {
         assertEquals(accountFields.getIndustry(), account.getIndustry());
         assertEquals(accountFields.getEmployees(), account.getEmployees());
 
-        String billingAddress = utils.convertAddress(account.getBillingCity(), account.getBillingStateProvince(), account.getBillingZipPostalCode());
-        assertTrue(utils.isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingStreet()));
-        assertTrue(utils.isExistElementInList(accountFields.getBillingAddressInformation(), billingAddress));
-        assertTrue(utils.isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingCountry()));
+        String billingAddress = convertAddress(account.getBillingCity(), account.getBillingStateProvince(), account.getBillingZipPostalCode());
+        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingStreet()));
+        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), billingAddress));
+        assertTrue(isExistElementInList(accountFields.getBillingAddressInformation(), account.getBillingCountry()));
 
-        String shippingAddress = utils.convertAddress(account.getShippingCity(), account.getShippingStateProvince(), account.getShippingZipPostalCode());
-        assertTrue(utils.isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingStreet()));
-        assertTrue(utils.isExistElementInList(accountFields.getShippingAddressInformation(), shippingAddress));
-        assertTrue(utils.isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingCountry()));
+        String shippingAddress = convertAddress(account.getShippingCity(), account.getShippingStateProvince(), account.getShippingZipPostalCode());
+        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingStreet()));
+        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), shippingAddress));
+        assertTrue(isExistElementInList(accountFields.getShippingAddressInformation(), account.getShippingCountry()));
     }
 
 }
