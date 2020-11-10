@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
-public class DeleteModal extends BasePage{
+public class DeleteModal extends BasePage {
 
     public static final By BUTTON_DELETE = By.xpath("//span[contains(text(), 'Delete')]");
 

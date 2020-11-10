@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
-import utils.Utils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -16,10 +15,9 @@ import static utils.Utils.*;
 
 public class ContactDetailsWidget extends BasePage {
 
-    ContactFields contactFields;
-
     public static final By TAB_DETAILS = By.xpath("//a[contains(@data-label,'Details')]");
     public static final By LOCATOR = By.xpath("//span[contains(text(),'Created By')]");
+    ContactFields contactFields;
 
     public ContactDetailsWidget(WebDriver driver) {
         super(driver);
@@ -41,10 +39,10 @@ public class ContactDetailsWidget extends BasePage {
 
         contactFields = new ContactFields();
 
-        contactFields.setName(new Fields(driver,"Name").getInformationName());
+        contactFields.setName(new Fields(driver, "Name").getInformationName());
         contactFields.setAccountName(new Fields(driver, "Account Name").getInformationLink());
-        contactFields.setTitle(new Fields(driver,"Title").getInformationText());
-        contactFields.setEmail(new Fields(driver,"Email").getInformationLink());
+        contactFields.setTitle(new Fields(driver, "Title").getInformationText());
+        contactFields.setEmail(new Fields(driver, "Email").getInformationLink());
         contactFields.setPhone(new Fields(driver, "Phone").getInformationText());
         contactFields.setMobile(new Fields(driver, "Mobile").getInformationText());
         contactFields.setReportsTo(new Fields(driver, "Reports To").getInformationSpan());
@@ -58,7 +56,7 @@ public class ContactDetailsWidget extends BasePage {
     @Step("Validate created account")
     public void validateContactDetails(ContactFields contactFields, Contact contact) {
 
-        String name = convertName(contact.getSalutation(),contact.getFirstName(),contact.getMiddleName(),contact.getLastName(),contact.getSuffix());
+        String name = convertName(contact.getSalutation(), contact.getFirstName(), contact.getMiddleName(), contact.getLastName(), contact.getSuffix());
         assertEquals(contactFields.getName(), name);
         assertEquals(contactFields.getAccountName(), contact.getAccountName());
         assertEquals(contactFields.getTitle(), contact.getTitle());

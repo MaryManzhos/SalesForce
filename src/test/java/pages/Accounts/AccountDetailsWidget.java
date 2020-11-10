@@ -11,14 +11,14 @@ import pages.BasePage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static utils.Utils.*;
+import static utils.Utils.convertAddress;
+import static utils.Utils.isExistElementInList;
 
 public class AccountDetailsWidget extends BasePage {
 
-    AccountFields accountFields;
-
     public static final By TAB_DETAILS = By.xpath("//a[contains(@data-label,'Details')]");
     public static final By LOCATOR = By.xpath("//span[contains(text(),'Created By')]");
+    AccountFields accountFields;
 
     public AccountDetailsWidget(WebDriver driver) {
         super(driver);
