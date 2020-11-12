@@ -15,17 +15,6 @@ public class AccountFields {
     List<String> billingAddressInformation;
     List<String> shippingAddressInformation;
 
-    /*String billingStreet;
-    String billingCity;
-    String billingStateProvince;
-    String billingZipPostalCode;
-    String billingCountry;
-    String shippingStreet;
-    String shippingCity;
-    String shippingStateProvince;
-    String shippingZipPostalCode;
-    String shippingCountry;*/
-
     public AccountFields() {
     }
 

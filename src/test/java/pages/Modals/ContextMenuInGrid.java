@@ -8,7 +8,6 @@ import pages.BasePage;
 
 public class ContextMenuInGrid extends BasePage {
 
-    public static final String ICON_FOR_MENU = "//a[contains(@title, '%s')]/ancestor::tr//a[contains(@role,'button')]";
     public static final By MENU_ITEM_DELETE = By.xpath("//a[contains(@title, 'Delete')]");
 
     public ContextMenuInGrid(WebDriver driver) {

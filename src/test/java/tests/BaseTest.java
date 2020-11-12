@@ -61,7 +61,7 @@ public class BaseTest {
         contactDetailsWidget = new ContactDetailsWidget(driver);
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterClass(description = "Close browser", alwaysRun = true)
     public void closeBrowser() {
         driver.quit();
     }

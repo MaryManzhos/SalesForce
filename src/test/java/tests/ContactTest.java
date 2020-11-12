@@ -17,7 +17,7 @@ public class ContactTest extends Authorization {
             "Province", "123456789",
             "France");
 
-    @Test
+    @Test(description = "Create new Contact", retryAnalyzer = RetryAnalyzer.class)
     public void contactShouldBeCreated() {
         contactListPage
                 .openPage()
@@ -34,7 +34,7 @@ public class ContactTest extends Authorization {
         contactDetailsWidget.validateContactDetails(contactFields, contact);
     }
 
-    @AfterMethod
+    @AfterMethod(description = "Delete added contact")
     public void deleteAddedAccount() {
         contactListPage
                 .openPage()

@@ -39,7 +39,7 @@ public class Fields {
 
     public List<String> getInformationAddressLink() {
         List<WebElement> elements = driver.findElements(By.xpath(String.format(locatorAddressA, label)));
-        List<String> addressInformation = new ArrayList<String>();
+        List<String> addressInformation = new ArrayList<>();
 
         for (WebElement value : elements) {
             addressInformation.add(value.getText());

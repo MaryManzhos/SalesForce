@@ -25,11 +25,13 @@ public class ContactListPage extends BasePage {
         return this;
     }
 
+    @Step("Open Contact list page")
     public ContactListPage openPage() {
         driver.get(URL);
         return this;
     }
 
+    @Step("Open New Contact Modal")
     public NewContactModal openModalNewAccount() {
         driver.findElement(BUTTON_NEW).click();
         return new NewContactModal(driver);

@@ -15,13 +15,6 @@ public class ContactFields {
     String fax;
 
     List<String> mailingAddress;
-    /*
-    String mailingStreet;
-    String mailingCity;
-    String mailingStateProvince;
-    String mailingZipPostalCode;
-    String mailingCountry;
-     */
 
     public ContactFields() {
     }

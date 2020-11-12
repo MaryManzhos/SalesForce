@@ -4,6 +4,7 @@ import elements.DropDown;
 import elements.Input;
 import elements.InputsWithSearch;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class NewContactModal extends BasePage {
         return this;
     }
 
+    @Step("Input values into fields")
     public NewContactModal createAccount(Contact contact) {
         new DropDown(driver, "Salutation").select(contact.getSalutation());
         new Input(driver, "First Name").write(contact.getFirstName());
@@ -47,6 +49,7 @@ public class NewContactModal extends BasePage {
         return this;
     }
 
+    @Step("Click button SAVE")
     public NewContactModal clickButtonSave() {
         driver.findElement(BUTTON_SAVE).click();
         return this;

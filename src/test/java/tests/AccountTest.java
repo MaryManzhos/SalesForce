@@ -34,7 +34,7 @@ public class AccountTest extends Authorization {
         accountDetailsWidget.validateAccountDetails(accountFields, account);
     }
 
-    @AfterMethod
+    @AfterMethod(description = "Delete added account")
     public void deleteAddedAccount() {
         accountListPage
                 .openPage()

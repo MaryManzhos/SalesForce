@@ -29,7 +29,7 @@ public class ContactDetailsWidget extends BasePage {
         return this;
     }
 
-    @Step("Go to tab Account Details")
+    @Step("Go to tab Contact Details")
     public ContactDetailsWidget goToTabDetails() {
         driver.findElement(TAB_DETAILS).click();
         return this;
@@ -53,7 +53,7 @@ public class ContactDetailsWidget extends BasePage {
         return contactFields;
     }
 
-    @Step("Validate created account")
+    @Step("Validate created contact")
     public void validateContactDetails(ContactFields contactFields, Contact contact) {
 
         String name = convertName(contact.getSalutation(), contact.getFirstName(), contact.getMiddleName(), contact.getLastName(), contact.getSuffix());
